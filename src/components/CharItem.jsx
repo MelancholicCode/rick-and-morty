@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import FlexWrapper from './UI/FlexWrapper';
 
 const StyledCharItem = styled.li`
+cursor: pointer;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -38,9 +39,9 @@ font-weight: 500;
 font-size: 18px;
 `;
 
-const CharItem = ({char}) => {
+const CharItem = ({char, onCharModal}) => {
   return (
-    <StyledCharItem>
+    <StyledCharItem onClick={() => onCharModal(char)}>
       <CharImgWrapper>
         <img src={char.image} width="100%" height="100%" alt="" />
       </CharImgWrapper>
