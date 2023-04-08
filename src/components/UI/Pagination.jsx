@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import Icon from './Icon';
+import arrow from "../../img/arrow.svg";
 
 const PaginationBox = styled.div`
 display: flex;
@@ -27,13 +29,13 @@ function Pagination({ totalPages, currentPage, setPage }) {
   const renderPages = () => {
     const pages = [];
     let startPage = 1;
-    if (pageState > 5) {
-      startPage = pageState - 4;
+    if (pageState > 3) {
+      startPage = pageState - 2;
     }
-    let endPage = startPage + 9;
+    let endPage = startPage + 4;
     if (endPage > totalPages) {
       endPage = totalPages;
-      startPage = endPage - 9;
+      startPage = endPage - 4;
     }
     for (let i = startPage; i <= endPage; i++) {
       pages.push(
@@ -51,7 +53,13 @@ function Pagination({ totalPages, currentPage, setPage }) {
 
   return (
     <PaginationBox>
+      <PageButton onClick={() => onChangePage(1)}>
+        <Icon src={arrow} width="20px" height="20px" rotate="180"/>
+      </PageButton>
       {renderPages()}
+      <PageButton onClick={() => onChangePage(totalPages)}>
+        <Icon src={arrow} width="20px" height="20px"/>
+      </PageButton>
     </PaginationBox>
   );
 }
