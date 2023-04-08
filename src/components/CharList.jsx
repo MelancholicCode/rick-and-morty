@@ -8,11 +8,11 @@ flex-wrap: wrap;
 max-width: 1000px;
 `;
 
-const CharList = ({chars}) => {
+const CharList = ({chars, onCharModal}) => {
   return (
     <StyledCharList>
       {chars.map(char => (
-        <CharItem char={char}/>
+        <CharItem key={char.id} char={char} onCharModal={onCharModal}/>
       ))}
     </StyledCharList>
   );

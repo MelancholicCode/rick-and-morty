@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import Icon from './Icon';
-import arrow from "../../img/arrow.svg";
+import arrowImg from "../../img/arrow.svg";
 
 const PaginationBox = styled.div`
 display: flex;
@@ -10,8 +10,8 @@ gap: 5px;
 
 const PageButton = styled.button`
 cursor: pointer;
-background-color: ${(props) => props.active ? '#333' : 'transparent'};
-color: ${(props) => (props.active ? '#fff' : '#333')};
+background-color: ${(props) => props.active ? '#eee' : 'transparent'};
+color: ${(props) => (props.active ? '#333' : '#eee')};
 font-size: 18px;
 padding: 8px 12px;
 border: none;
@@ -54,11 +54,11 @@ function Pagination({ totalPages, currentPage, setPage }) {
   return (
     <PaginationBox>
       <PageButton onClick={() => onChangePage(1)}>
-        <Icon src={arrow} width="20px" height="20px" rotate="180"/>
+        <Icon src={arrowImg} width="20px" height="20px" rotate="180"/>
       </PageButton>
       {renderPages()}
       <PageButton onClick={() => onChangePage(totalPages)}>
-        <Icon src={arrow} width="20px" height="20px"/>
+        <Icon src={arrowImg} width="20px" height="20px"/>
       </PageButton>
     </PaginationBox>
   );
