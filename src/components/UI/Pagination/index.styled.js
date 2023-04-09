@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const StyledPagination = styled.div`
   display: flex;
-  gap: 5px;
 `;
 
 export const StyledPageButton = styled.button`
