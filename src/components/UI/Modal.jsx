@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 
 const StyledModal = styled.div`
@@ -15,8 +16,22 @@ justify-content: center;
 align-items: center;
 `;
 
-const Modal = ({setActive, ...props}) => {
-  return <StyledModal onClick={() => setActive(false)} {...props}/>
+const ModalContent = styled.div`
+padding: 0 15px;
+`;
+
+const Modal = ({active, setActive, children, ...props}) => {
+  useEffect(() => {
+    if (active) document.body.style.overflow = 'hidden';
+    return () => document.body.style.overflow = 'visible';
+  }, [active])
+  return (
+    <StyledModal onClick={() => setActive(false)} active={active} {...props}>
+      <ModalContent onClick={e => e.stopPropagation()}>
+        {children}
+      </ModalContent>
+    </StyledModal>
+  );
 };
 
 export default Modal;

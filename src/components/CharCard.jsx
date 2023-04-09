@@ -8,7 +8,8 @@ gap: 10px;
 padding: 20px;
 background-color: #eee;
 border-radius: 15px;
-width: 400px;
+width: ${props => props.width || 'auto'};
+height: ${props => props.height || 'auto'};
 `;
 
 const CharImgWrapper = styled.div`
@@ -25,16 +26,16 @@ font-size: 18px;
 
 const CharCard = ({char}) => {
   return (
-    <StyledCharCard onClick={e => e.stopPropagation()}>
-        <CharImgWrapper>
-          <img src={char.image} alt="" width="100%" height="100%"/>
-        </CharImgWrapper>
-        <FlexWrapper direction="column" gap="5px">
-          <CharName>{char.name}</CharName>
-          <p>Status: {char.status}</p>
-          <p>Gender: {char.gender}</p>
-          <p>Appears in {char.episode.length} episodes</p>
-        </FlexWrapper>
+    <StyledCharCard>
+      <CharImgWrapper>
+        <img src={char.image} alt="" width="100%" height="100%"/>
+      </CharImgWrapper>
+      <FlexWrapper direction="column" gap="5px">
+        <CharName>{char.name}</CharName>
+        <p>Status: {char.status}</p>
+        <p>Gender: {char.gender}</p>
+        <p>Appears in {char.episode.length} episodes</p>
+      </FlexWrapper>
     </StyledCharCard>
   );
 };

@@ -51,7 +51,7 @@ const CharsPage = () => {
   return (
     <StyledCharsPage>
       <Modal active={modalActive} setActive={setModalActive}>
-        {cardChar && <CharCard char={cardChar}/>}
+        {cardChar && <CharCard char={cardChar} width="400px"/>}
       </Modal>
       <Container>
         <FlexWrapper direction="column" gap="15px" align="center">
