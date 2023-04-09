@@ -1,22 +1,9 @@
 import { useState } from 'react';
-import styled from 'styled-components';
-import Icon from './Icon';
-import arrowImg from "../../img/arrow.svg";
 
-const PaginationBox = styled.div`
-display: flex;
-gap: 5px;
-`;
+import Icon from '../Icon';
+import { StyledPageButton, StyledPagination } from './index.styled';
 
-const PageButton = styled.button`
-cursor: pointer;
-background-color: ${(props) => props.active ? '#eee' : 'transparent'};
-color: ${(props) => (props.active ? '#333' : '#eee')};
-font-size: 18px;
-padding: 8px 12px;
-border: none;
-border-radius: 5px;
-`;
+import { doubleArrow } from '../../../img/icons';
 
 function Pagination({ totalPages, currentPage, setPage }) {
   const [pageState, setPageState] = useState(currentPage);
@@ -39,28 +26,28 @@ function Pagination({ totalPages, currentPage, setPage }) {
     }
     for (let i = startPage; i <= endPage; i++) {
       pages.push(
-        <PageButton
+        <StyledPageButton
           key={i}
           active={i === pageState}
           onClick={() => onChangePage(i)}
         >
           {i}
-        </PageButton>
+        </StyledPageButton>
       );
     }
     return pages;
   };
 
   return (
-    <PaginationBox>
-      <PageButton onClick={() => onChangePage(1)}>
-        <Icon src={arrowImg} width="20px" height="20px" rotate="180"/>
-      </PageButton>
+    <StyledPagination>
+      <StyledPageButton onClick={() => onChangePage(1)}>
+        <Icon src={doubleArrow} width="20px" height="20px"/>
+      </StyledPageButton>
       {renderPages()}
-      <PageButton onClick={() => onChangePage(totalPages)}>
-        <Icon src={arrowImg} width="20px" height="20px"/>
-      </PageButton>
-    </PaginationBox>
+      <StyledPageButton onClick={() => onChangePage(totalPages)}>
+        <Icon src={doubleArrow} width="20px" height="20px" rotate="180"/>
+      </StyledPageButton>
+    </StyledPagination>
   );
 }
 
