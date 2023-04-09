@@ -50,7 +50,7 @@ const CharSearch = ({onCharModal, ...props}) => {
   }
 
   return (
-    <SearchForm {...props}>
+    <SearchForm {...props} onSubmit={e => e.preventDefault()}>
       <SearchInput value={inputValue} onChange={e => onChangeQuery(e.target.value)} placeholder='Enter the name'/>
       <SearchIcon>
         <Icon src={searchImg} width="20px" height="20px"/>

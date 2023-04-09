@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import FlexWrapper from './UI/FlexWrapper';
 import CharCard from './CharCard';
 
 const StyledCharItem = styled.li`

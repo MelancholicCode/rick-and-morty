@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import Icon from './Icon';
-import arrowImg from "../../img/arrow.svg";
+import doubleArrowImg from "../../img/double-arrow.svg";
 
 const PaginationBox = styled.div`
 display: flex;
@@ -54,11 +54,11 @@ function Pagination({ totalPages, currentPage, setPage }) {
   return (
     <PaginationBox>
       <PageButton onClick={() => onChangePage(1)}>
-        <Icon src={arrowImg} width="20px" height="20px" rotate="180"/>
+        <Icon src={doubleArrowImg} width="20px" height="20px"/>
       </PageButton>
       {renderPages()}
       <PageButton onClick={() => onChangePage(totalPages)}>
-        <Icon src={arrowImg} width="20px" height="20px"/>
+        <Icon src={doubleArrowImg} width="20px" height="20px" rotate="180"/>
       </PageButton>
     </PaginationBox>
   );

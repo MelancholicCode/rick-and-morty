@@ -18,6 +18,9 @@ const TipsItem = styled.li`
 cursor: pointer;
 padding: 10px;
 border: 1px solid #eee;
+&:hover {
+  background: #eee;
+}
 `;
 
 const SearchTips = ({chars, onCharModal, setQuery}) => {
