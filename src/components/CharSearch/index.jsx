@@ -33,7 +33,7 @@ const CharSearch = ({onCharModal, ...props}) => {
       <SearchIcon>
         <Icon src={search} width="20px" height="20px"/>
       </SearchIcon>
-      {inputValue && data && <SearchTips onCharModal={onCharModal} setQuery={setQuery} chars={data.results}/>}
+      {inputValue && data?.results && <SearchTips onCharModal={onCharModal} setQuery={setQuery} chars={data.results}/>}
     </SearchForm>
   );
 };
