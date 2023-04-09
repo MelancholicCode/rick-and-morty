@@ -1,24 +1,12 @@
 import { useState } from 'react';
 import { useQuery } from 'react-query';
-import styled from 'styled-components';
-import { apiUrl } from '../../utils/constants';
-import CharList from '../CharList';
-import Pagination from '../UI/Pagination';
-import FlexWrapper from '../UI/FlexWrapper';
-import Spinner from '../UI/Spinner';
-import Modal from '../UI/Modal';
-import CharCard from '../CharCard';
-import CharSearch from '../CharSearch';
+import { apiUrl } from '../../../utils/constants';
 
-const StyledCharsPage = styled.div`
-padding: 20px 0;
-`;
-
-const Container = styled.div`
-max-width: 1230px;
-padding: 0 15px;
-margin: 0 auto;
-`;
+import { Container, StyledCharsPage } from './index.styled';
+import CharList from '../../CharList';
+import CharCard from '../../CharCard';
+import CharSearch from '../../CharSearch';
+import { FlexWrapper, Modal, Pagination, Spinner } from '../../UI';
 
 const CharsPage = () => {
   const [page, setPage] = useState(1);

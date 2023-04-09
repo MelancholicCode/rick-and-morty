@@ -1,12 +1,5 @@
-import styled from "styled-components";
-import CharItem from "./CharItem";
-
-const StyledCharList = styled.ul`
-display: flex;
-gap: 10px;
-flex-wrap: wrap;
-max-width: 1000px;
-`;
+import { StyledCharList } from "./index.styled";
+import CharItem from "../CharItem";
 
 const CharList = ({chars, onCharModal}) => {
   return (
