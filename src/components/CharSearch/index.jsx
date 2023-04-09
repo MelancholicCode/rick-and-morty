@@ -1,34 +1,12 @@
-import searchImg from '../img/search.svg';
-import styled from 'styled-components';
-import Icon from './UI/Icon';
 import { useState } from 'react';
 import { useQuery } from 'react-query';
-import { apiUrl } from '../utils/constants';
-import SearchTips from './SearchTips';
+import { apiUrl } from '../../utils/constants';
 
-const SearchForm = styled.form`
-position: relative;
-display: flex;
-align-items: center;
-background-color: #fff;
-border: 2px solid #eee;
-border-radius: 10px;
-width: 100%;
-max-width: 500px;
-padding: 0 10px;
-`;
+import { SearchForm, SearchIcon, SearchInput } from './index.styled';
+import { Icon } from '../UI';
+import SearchTips from '../SearchTips';
 
-const SearchInput = styled.input`
-font-size: 20px;
-border: none;
-outline: none;
-background: transparent;
-width: calc(100% - 40px);
-`;
-
-const SearchIcon = styled.div`
-padding: 10px;
-`;
+import { search } from '../../img/icons';
 
 const CharSearch = ({onCharModal, ...props}) => {
   const [timer, setTimer] = useState(null);
@@ -50,10 +28,10 @@ const CharSearch = ({onCharModal, ...props}) => {
   }
 
   return (
-    <SearchForm {...props}>
+    <SearchForm {...props} onSubmit={e => e.preventDefault()}>
       <SearchInput value={inputValue} onChange={e => onChangeQuery(e.target.value)} placeholder='Enter the name'/>
       <SearchIcon>
-        <Icon src={searchImg} width="20px" height="20px"/>
+        <Icon src={search} width="20px" height="20px"/>
       </SearchIcon>
       {inputValue && data && <SearchTips onCharModal={onCharModal} setQuery={setQuery} chars={data.results}/>}
     </SearchForm>
